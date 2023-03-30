@@ -25,7 +25,6 @@ if(empty($email) || empty($password) || empty($name) || empty($surname) || empty
    exit(0);
 }
 
-
 //Hash de mot de passe
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
