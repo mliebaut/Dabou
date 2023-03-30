@@ -14,7 +14,7 @@ const VerifyAccount = () => {
     const [passwordError, setPasswordError] = useState("");
 
     useEffect(() => {
-        axios.post(`http://localhost:3000/verify-account`, {verifyToken : id}).catch(error => {
+        axios.post(`http://backend-dabou/backend/verify-account`, {verifyToken : id}).catch(error => {
             setResponseType("error");
             setShowPasswordForm(false);
         }).then(response => {
@@ -46,7 +46,7 @@ const VerifyAccount = () => {
 
         setPasswordError("");
 
-        axios.post(`http://localhost:3000/update-login`, {email: email, password: password}).catch(e => {
+        axios.post(`http://backend-dabou/backend/update-login`, {email: email, password: password}).catch(e => {
             console.log(e);
         }).then(response => {
             console.log(response);
