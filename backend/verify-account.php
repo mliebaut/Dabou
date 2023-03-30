@@ -14,8 +14,8 @@ use DomainException as DomainException;
 use InvalidArgumentException as InvalidArgumentException;
 use UnexpectedValueException as UnexpectedValueException;
 
-
-$response = array('code' => 200);
+$email = '';
+$response = array('code' => 200, 'email' => $email);
 $serverName = $_SERVER['SERVER_NAME'];   
 $jwt = $_POST['verifyToken'];
 $secretKey  = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
@@ -69,12 +69,14 @@ if ($token->iss !== $serverName ) {
 
 $email = $token->email;
 
-$stmt = $mysqli->prepare("SELECT 1 FROM login WHERE email = ? LIMIT 1");
+$stmt = $mysqli->prepare("SELECT id FROM login WHERE email = ? LIMIT 1");
 $stmt->bind_param("s", $email);
 $stmt->bind_result($exists);
 $stmt->execute();
 $stmt->fetch();
-
+// $result = $stmt->fetch();
+// $response['id'] = $result['id'];
+$response['email'] = $email;
 if ($exists) {
     echo json_encode($response);
     exit();
