@@ -1,0 +1,39 @@
+.pwd-form{
+    margin: 32px auto;
+    width: 100%;
+    min-width: 160px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 8px;
+    align-items: center;
+}
+
+.pwd-form-row{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.pwd-form-label{
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.pwd-form-input{
+    border-radius: 8px;
+    border-style: solid;
+    box-sizing: border-box;
+    border-color: #0066ff;
+    padding: 8px;
+}
+
+.pwd-form-submit{
+    width: fit-content;
+    box-sizing: border-box;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
