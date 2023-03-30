@@ -7,7 +7,7 @@ const VerifyAccount = () => {
     const [responseType, setResponseType] = useState("");
 
     useEffect(() => {
-        axios.put(`http://localhost:3000/verify-account`, {verifyToken : id}).then(response => {
+        axios.post(`http://localhost:3000/verify-account`, {verifyToken : id}).then(response => {
             setResponseType(response.code || "no response");
         });
     }, [responseType]);
