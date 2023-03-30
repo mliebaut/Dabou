@@ -18,7 +18,7 @@ if(empty($name) || empty($surname) || empty($dob) || empty($address)) {
 
 try {
     $stmt = $mysqli->prepare("UPDATE profile SET name=?, surname=?, dob=?, address=?, genre=? WHERE ref_login=?");
-    $stmt->bind_param("ssssii", $name, $surname, $dob, $address, $genre, $id);
+$stmt->bind_param("ssssii", $name, $surname, $dob, $address, $genre, $id);
     $stmt->execute();
     $ref_login = $mysqli->insert_id;
     //fetching result would go here, but will be covered later

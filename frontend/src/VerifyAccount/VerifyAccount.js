@@ -45,12 +45,20 @@ const VerifyAccount = () => {
         }
 
         setPasswordError("");
+        const params = {
+            headers : {
+                "content-type" : "application/json; charset=UTF-8"
+            },
+            body: {
+                email :email, 
+                password: password
+            },
+            method: "POST"
+        }
 
-        axios.post(`http://backend-dabou/backend/update-login`, {email: email, password: password}).catch(e => {
-            console.log(e);
-        }).then(response => {
-            console.log(response);
-        })
+        fetch(`http://backend-dabou/backend/update-login`, params)
+        .then(res=>console.log(res))
+        .catch(error => console.error(error))
     }
 
     return (
